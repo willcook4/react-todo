@@ -1,11 +1,8 @@
-#React Timer App
-Simple, clean timer and countdown application. Built with React and tested with Karma.
+#React Boilerplate
+Simple, clean boilerplate for using with React and testing with Karma. Includes Foundation Framework.
 
+Built with:
 
-See the final result live [here](https://frozen-gorge-68535.herokuapp.com/).
-
-Built using:
--
 * React -JavaScript Framework
 * Webpack - Compiling code
 * Babel - ES6 to ES5 for browser compatibility
@@ -16,5 +13,6 @@ Built using:
 
 Run the tests with
 ```npm test```
+
 
 
