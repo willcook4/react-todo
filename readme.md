@@ -1,5 +1,5 @@
-#React Boilerplate
-Simple, clean boilerplate for using with React and testing with Karma. Includes Foundation Framework.
+#React Todo App
+A todo list application.
 
 Built with:
 
