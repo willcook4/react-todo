@@ -6,20 +6,24 @@ var AddToDo = React.createClass({
     e.preventDefault();
     var inputText = this.refs.todoInput.value;
     // alert(inputText);
-    if(inputText.length >3){
+    if(inputText.length > 3){
+      this.refs.todoInput.value = '';
       this.props.addToDo(inputText);
+    } else {
+      // Puts focus back on the form input...
+      this.refs.todoInput.focus();
     };
-    this.refs.todoInput.value = '';
+
   },
   render: function(){
     return (
       <div>
         <form onSubmit={this.formSubmit} ref="addTodoForm">
-          <input type='text' ref="todoInput"/>
-          <button className="button" type='submit'>Add Todo</button>
+          <input type="text" ref="todoInput" placeholder="What do you need to do?"/>
+          <button className="button expanded" type='submit'>Add Todo</button>
         </form>
       </div>
-    )
+    );
   }
 });
 

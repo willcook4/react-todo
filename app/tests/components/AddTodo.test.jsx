@@ -11,16 +11,17 @@ describe('AddToDo', () => {
     expect(AddToDo).toExist();
   });
 
-  it('should call addToDo if valid input added', () => {
+  it('should call addToDo prop if valid input added by user', () => {
+    var todoText = 'This is a test item';
     var spy = expect.createSpy();
     var addToDoForm = TestUtils.renderIntoDocument(<AddToDo addToDo={spy}/>);
     var $element = $(ReactDOM.findDOMNode(addToDoForm));
 
-    addToDoForm.refs.todoInput.value = 'This is a test item';
+    addToDoForm.refs.todoInput.value = todoText;
 
     TestUtils.Simulate.submit($element.find('form')[0]);
 
-    expect(spy).toHaveBeenCalledWith('This is a test item');
+    expect(spy).toHaveBeenCalledWith(todoText);
   });
 
   it('should not call addToDo if invalid (too short an)input is entered', () =>{
