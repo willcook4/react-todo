@@ -6,7 +6,7 @@ var AddToDo = React.createClass({
     e.preventDefault();
     var inputText = this.refs.todoInput.value;
     // alert(inputText);
-    if(inputText.length > 3){
+    if(inputText.length >= 3){
       this.refs.todoInput.value = '';
       this.props.addToDo(inputText);
     } else {
