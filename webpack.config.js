@@ -49,30 +49,7 @@ module.exports = {
                 ]
               }
             }]
-        }]
-      },
-
-
-
-
-    //// loaders: [
-    ////   {
-    ////     loader: 'babel-loader',
-    //     query: {
-    //       presets: ['react', 'es2015', 'stage-0']
-    //     },
-    ////     test: /\.jsx?$/,
-    //     exclude: /(node_modules|bower_components)/
-    //   }
-    // ],
-
-
-
-  // },
-  // sassLoader: {
-  //   includePaths: [
-  //     path.resolve(__dirname, './node_modules/foundation-sites/scss')
-  //   ]
-  // },
+      }]
+  },
   devtool: 'eval-source-map'
 };
