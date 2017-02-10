@@ -14,8 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-router": "^3.0.2"
   },
   "repository": {
@@ -39,10 +39,10 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "mocha": "^3.2.0",
-    "node-sass": "^3.13.1",
+    "node-sass": "^4.5.0",
     "node-uuid": "^1.4.7",
-    "react-addons-test-utils": "^0.14.8",
-    "sass-loader": "^3.2.3",
+    "react-addons-test-utils": "^15.4.2",
+    "sass-loader": "^5.0.1",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.0",
     "webpack": "^2.2.1"
