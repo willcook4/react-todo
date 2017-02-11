@@ -45,7 +45,8 @@ module.exports = {
               loader: 'sass-loader',
               options: {
                 includePaths: [
-                  path.resolve(__dirname, './node_modules/foundation-sites/scss')
+                  path.resolve(__dirname, './node_modules/foundation-sites/scss'),
+                  path.resolve(__dirname, './app/styles/')
                 ]
               }
             }]
