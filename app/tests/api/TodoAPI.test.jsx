@@ -3,14 +3,15 @@ var expect = require('expect');
 var TodoAPI = require('TodoAPI');
 
 describe('TodoAPI', () => {
+  beforeEach(() => {
+    localStorage.removeItem('todos');
+  });
+
   it('should exist', () => {
     expect(TodoAPI).toExist();
   });
 
   describe('setTodos', () => {
-    beforeEach(() => {
-      localStorage.removeItem('todos');
-    });
 
     it('should set valid todos array', () => {
       var todos =[{
@@ -35,6 +36,21 @@ describe('TodoAPI', () => {
   });
 
   describe('getTodos', () => {
+    it('should return empty array for bad localStorage data', () => {
+      var actualTodos = TodoAPI.getTodos();
+      expect(actualTodos).toEqual([]);
+    });
 
+    it('should return todo if valid array', ()=>{
+      var todos =[{
+        id: 23,
+        text: 'testing this module',
+        completed: false
+      }];
+      //Explicitly test using localStorage rather than a possibly broken TodoAPI function.
+      localStorage.setItem('todos', JSON.stringify(todos));
+      var actualTodos = TodoAPI.getTodos();
+      expect(actualTodos).toEqual(todos);
+    });
   });
 });
