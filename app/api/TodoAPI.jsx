@@ -27,9 +27,29 @@ module.exports = {
       return !todo.completed || showCompleted;
     });
     // Filter by searchText
+    filteredTodos = filteredTodos.filter((todo) => {
+      var todoText = todo.text.toLowerCase();
+      return searchText.length === 0 || todoText.indexOf(searchText) > -1;
+    });
 
     // Sort Todos with non-completed first
+    filteredTodos.sort((a, b) => {
+      // a before b
+      // return -1;
+      // b before a
+      // return 1;
+      // no change(a===b)
+      // return 0;
+      if(!a.completed && b.completed) {
+        return -1;
+      }
+      else if(a.completed && !b.completed) {
+        return 1;
+      } else {
+        return 0;
+      }
 
+    });
     return filteredTodos;
   }
 };
