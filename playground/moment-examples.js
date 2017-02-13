@@ -6,7 +6,7 @@ console.log(moment().format());
 // January 1st 1979 @ 12:01am --> -60
 
 var now = moment();
-
+// Time since 1970
 console.log('Current Timestamp', now.unix());
 
 // Time since the UnixEpoch
