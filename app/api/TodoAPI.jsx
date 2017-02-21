@@ -42,13 +42,11 @@ module.exports = {
       // return 0;
       if(!a.completed && b.completed) {
         return -1;
-      }
-      else if(a.completed && !b.completed) {
+      } else if(a.completed && !b.completed) {
         return 1;
       } else {
         return 0;
       }
-
     });
     return filteredTodos;
   }

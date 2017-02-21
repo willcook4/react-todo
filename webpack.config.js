@@ -21,8 +21,8 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, './app/components'),
-              path.resolve(__dirname, './app/api'),
-              'node_modules'],
+      path.resolve(__dirname, './app/api'),
+      'node_modules'],
     alias: {
       applicationStyles: path.resolve(__dirname, './app/styles/app.scss')
     },
@@ -37,21 +37,21 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['react', 'es2015', 'stage-0'],
-              }
-            }]
+              presets: ['react', 'es2015', 'stage-0']
+            }
+          }]
       },{
-          test: /\.scss?$/,
-          use: [
-            {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [
-                  path.resolve(__dirname, './node_modules/foundation-sites/scss'),
-                  path.resolve(__dirname, './app/styles/')
-                ]
-              }
-            }]
+        test: /\.scss?$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [
+                path.resolve(__dirname, './node_modules/foundation-sites/scss'),
+                path.resolve(__dirname, './app/styles/')
+              ]
+            }
+          }]
       }]
   },
   devtool: 'eval-source-map'

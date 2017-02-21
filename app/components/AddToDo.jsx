@@ -12,8 +12,7 @@ var AddToDo = React.createClass({
     } else {
       // Puts focus back on the form input...
       this.refs.todoInput.focus();
-    };
-
+    }
   },
   render: function(){
     return (
