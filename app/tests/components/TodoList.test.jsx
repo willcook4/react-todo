@@ -1,3 +1,4 @@
+/* global describe, expect, it */ //esLint config for this file
 var React = require('react');
 var ReactDOM = require('react-dom');
 var expect = require('expect');

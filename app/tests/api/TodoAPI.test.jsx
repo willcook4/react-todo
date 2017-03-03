@@ -1,3 +1,5 @@
+/* global describe, it, beforeEach */
+
 var expect = require('expect');
 
 var TodoAPI = require('TodoAPI');
