@@ -13,6 +13,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.TODOAPP_G_FIREBASE_API_KEY': JSON.stringify(process.env.TODOAPP_G_FIREBASE_API_KEY)
     })
   ],
   output: {
