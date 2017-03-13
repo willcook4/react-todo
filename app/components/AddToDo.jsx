@@ -11,7 +11,7 @@ export var AddToDo = React.createClass({
 
     if(todoText.length >= 3){
       this.refs.todoText.value = '';
-      dispatch(actions.addTodo(todoText));
+      dispatch(actions.startAddTodo(todoText));
     } else {
       // Puts focus back on the form input...
       this.refs.todoText.focus();

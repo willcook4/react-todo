@@ -27,10 +27,13 @@ module.exports = {
       path.resolve(__dirname, './app/api'),
       'node_modules'],
     alias: {
+      app: 'app',
       applicationStyles: path.resolve(__dirname, './app/styles/app.scss'),
       actions: path.resolve(__dirname, './app/actions/actions.jsx'),
       reducers: path.resolve(__dirname, './app/reducers/reducers.jsx'),
       configureStore: path.resolve(__dirname, './app/store/configureStore.jsx')
+      // firebase: path.resolve(__dirname, './app/firebase/index.js')
+
     },
     extensions: ['.js', '.jsx']
   },

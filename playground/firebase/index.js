@@ -103,14 +103,33 @@ firebaseRef.set({
 //
 // firebaseRef.update({isRunning: false});
 
-firebaseRef.child('user').on('value', (snapshot) => {
-  console.log('Updated the user name:', snapshot.val());
+// firebaseRef.child('user').on('value', (snapshot) => {
+//   console.log('Updated the user name:', snapshot.val());
+// });
+//
+// firebaseRef.child('user').update({
+//   name: 'Kate'
+// });
+//
+// firebaseRef.child('user').update({
+//   name: 'Something completly new'
+// });
+
+//Exercise 5
+//Create a new variable to store array
+//use child added with key value
+// push 2 values into the array
+var todosRef = firebaseRef.child('todos');
+
+todosRef.on('child_added', (snapshot) => {
+  console.log('child_added', snapshot.key, snapshot.val());
 });
 
-firebaseRef.child('user').update({
-  name: 'Kate'
+var todo1 = todosRef.push({
+  text: 'Walk the dog'
 });
 
-firebaseRef.child('user').update({
-  name: 'Something completly new'
+var todo2 = todosRef.push({
+  text: 'Feed the cat'
 });
+
