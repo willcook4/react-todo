@@ -1,11 +1,11 @@
 /* global describe, it */ //esLint config for this file
 var React = require('react');
 var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 var expect = require('expect');
 var $ = require('jQuery');
-var TestUtils = require('react-addons-test-utils');
 
-
+import * as actions from 'actions';
 var {AddToDo} = require('AddToDo');
 
 describe('AddToDo', () => {
@@ -15,10 +15,7 @@ describe('AddToDo', () => {
 
   it('should dispatch ADD_TODO when vaild todo text', () => {
     var todoText = 'This is a test item';
-    var action = {
-      type: 'ADD_TODO',
-      text: todoText
-    };
+    var action = actions.startAddTodo(todoText);
     var spy = expect.createSpy();
     var addToDoForm = TestUtils.renderIntoDocument(<AddToDo dispatch={spy}/>);
     var $element = $(ReactDOM.findDOMNode(addToDoForm));

@@ -1,6 +1,11 @@
-/* global describe, expect, it */ //esLint config for this file
+/* global describe, it */ //esLint config for this file
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 const expect = require('expect');
+
 const actions = require('actions');
+
+var createMockStore = configureMockStore([thunk]);
 
 describe('Actions', ()=> {
   it('Should generate search text action', () => {
@@ -12,13 +17,43 @@ describe('Actions', ()=> {
     expect(response).toEqual(action);
   });
 
+  it('Should generate toggle show completed action', () => {
+    const action = {
+      type: 'TOGGLE_SHOW_COMPLETED'
+    };
+    const response = actions.toggleShowCompleted();
+    expect(response).toEqual(action);
+
+  });
+
   it('Should generate add todo action', () => {
     const action = {
       type: 'ADD_TODO',
-      text: 'Thing to do'
+      todo: {
+        id: '123abc',
+        text: 'Anything We like',
+        completed: false,
+        createdAt: 0
+      }
     };
-    const response = actions.addTodo(action.text);
+    const response = actions.addTodo(action.todo);
     expect(response).toEqual(action);
+  });
+
+  it('should create todo and dispatch ADD_TODO', (done) => {
+    const store = createMockStore({}); // Empty test store
+    const todoText = 'My testing todo item';
+
+    store.dispatch(actions.startAddTodo(todoText)).then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toInclude({
+        type: 'ADD_TODO'
+      });
+      expect(actions[0].todo).toInclude({
+        text: todoText
+      });
+      done();
+    }).catch(done);  //Will call done with error
   });
 
   it('should generate add todos action object', () => {
@@ -37,15 +72,6 @@ describe('Actions', ()=> {
     expect(response).toEqual(action);
   });
 
-  it('Should generate toggle show completed action', () => {
-    const action = {
-      type: 'TOGGLE_SHOW_COMPLETED'
-    };
-    const response = actions.toggleShowCompleted();
-    expect(response).toEqual(action);
-
-  });
-
   it('Should generate toggle todo action', () => {
     const action = {
       type: 'TOGGLE_TODO',
@@ -54,6 +80,5 @@ describe('Actions', ()=> {
     const response = actions.toggleTodo(action.id);
     expect(response).toEqual(action);
   });
-
 
 });

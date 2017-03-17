@@ -8,17 +8,16 @@ export const setSearchText = (searchText) => {
   };
 };
 
+export const toggleShowCompleted = () => {
+  return {
+    type: 'TOGGLE_SHOW_COMPLETED'
+  };
+};
+
 export const addTodo = (todo) => {
   return {
     type: 'ADD_TODO',
     todo
-  };
-};
-
-export const addTodos = (todos) => {
-  return {
-    type: 'ADD_TODOS',
-    todos
   };
 };
 
@@ -32,7 +31,7 @@ export var startAddTodo = (text) => {
     };
     var todoRef = firebaseRef.child('todos').push(todo);
 
-    todoRef.then(() =>{
+    return todoRef.then(() =>{
       dispatch(addTodo({
         ...todo,
         id: todoRef.key
@@ -41,9 +40,10 @@ export var startAddTodo = (text) => {
   };
 };
 
-export const toggleShowCompleted = () => {
+export const addTodos = (todos) => {
   return {
-    type: 'TOGGLE_SHOW_COMPLETED'
+    type: 'ADD_TODOS',
+    todos
   };
 };
 

@@ -1,4 +1,4 @@
-const uuid = require('uuid');
+const uuid = require('uuid'); 
 const moment = require('moment');
 
 export const searchTextReducer = (state = '', action) => {

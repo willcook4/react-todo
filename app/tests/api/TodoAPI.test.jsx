@@ -43,7 +43,7 @@ describe('TodoAPI', () => {
       expect(actualTodos).toEqual([]);
     });
 
-    it('should return todo if valid array', ()=>{
+    it('should return todo if valid array in local storage', ()=>{
       var todos =[{
         id: 23,
         text: 'testing this module',

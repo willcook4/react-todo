@@ -13,7 +13,7 @@ export var TodoList = React.createClass({
         );
       }
 
-      return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo)=>{
+      return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
         return (
           <Todo key={todo.id} {...todo}/>
         );

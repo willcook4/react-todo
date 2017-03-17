@@ -1,9 +1,9 @@
 /* global describe, expect, it */ //esLint config for this file
 var React = require('react');
 var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 var expect = require('expect');
 var $ = require('jQuery');
-var TestUtils = require('react-addons-test-utils');
 
 var {Todo} = require('Todo');
 
@@ -12,7 +12,7 @@ describe('Todo', () => {
     expect(Todo).toExist();
   });
 
-  it('should dispatch toggleTodo action on click', () => {
+  it('should dispatch TOGGLE_TODO action on click', () => {
     var todoData = {
       id: 199,
       text: 'Testing features',
