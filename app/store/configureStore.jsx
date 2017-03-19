@@ -11,9 +11,16 @@ export const configure = (initialState = {}) => {
     todos: todosReducer
   });
 
-  const store = redux.createStore(reducer, initialState, redux.compose(
+  // Own / Inc from Stack Overflow
+  // const store = redux.createStore(reducer, initialState, redux.compose(
+  //   redux.applyMiddleware(thunk),
+  //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+
+  // Andrew's from solution
+  var store = redux.createStore(reducer, initialState, redux.compose(
     redux.applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  ));
 
   return store;
 };
