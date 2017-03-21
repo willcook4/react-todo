@@ -8,7 +8,7 @@ const actions = require('actions');
 
 var createMockStore = configureMockStore([thunk]);
 
-describe('Actions', ()=> {
+describe('Actions', () => {
   it('Should generate search text action', () => {
     const action = {
       type: 'SET_SEARCH_TEXT',
@@ -89,24 +89,30 @@ describe('Actions', ()=> {
     var testTodoRef;
 
     beforeEach((done) => {
-      testTodoRef = firebaseRef.child('todos').push();
+      var todosRef = firebaseRef.child('todos');
 
-      testTodoRef.set({
-        text: 'Something todo',
-        completed: false,
-        createdAt: 23453545
-      }).then(() => done());
+      todosRef.remove().then(() => {
+        testTodoRef = firebaseRef.child('todos').push();
+
+        return testTodoRef.set({
+          text: 'Something to do',
+          completed: false,
+          createdAt: 23453545
+        });
+      })
+      .then(() => done())
+      .catch(done);
     });
 
     afterEach((done) => {
-      testTodoRef.remove().then(()=> done());
+      testTodoRef.remove().then(() => done());
     });
 
     it('should toggle todo and dispatch UPDATE_TODO action', (done) => {
       const store = createMockStore({});
       const action = actions.startToggleTodo(testTodoRef.key, true);
 
-      store.dispatch(action).then(() =>{
+      store.dispatch(action).then(() => {
         const mockActions = store.getActions();
 
         expect(mockActions[0]).toInclude({
@@ -122,6 +128,20 @@ describe('Actions', ()=> {
         done();
       }, done);
     });
-  });
 
+    it('should populate todos and dispatch ADD_TODOS', (done) => {
+      const store = createMockStore({});
+      const action = actions.startAddTodos();
+
+      store.dispatch(action).then(() => {
+        const mockActions = store.getActions();
+
+        expect(mockActions[0].type).toEqual('ADD_TODOS');
+        expect(mockActions[0].todos.length).toEqual(1);
+        expect(mockActions[0].todos[0].text).toEqual('Something to do');
+
+        done();
+      }, done);
+    });
+  });
 });
