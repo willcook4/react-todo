@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
@@ -16,6 +18,11 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.TODOAPP_G_FIREBASE_API_KEY': JSON.stringify(process.env.TODOAPP_G_FIREBASE_API_KEY)
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
     })
   ],
   output: {
@@ -63,5 +70,5 @@ module.exports = {
           }]
       }]
   },
-  devtool: 'eval-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined :'eval-source-map'
 };
