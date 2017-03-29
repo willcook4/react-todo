@@ -12,7 +12,7 @@ Built with:
 * Foundation - Front-end Framework
 
 Run the tests with
-```npm test```
+`npm test`
 
-
+Run the app locally with `node server.js`
 

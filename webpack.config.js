@@ -3,6 +3,11 @@ var path = require('path');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+try {
+
+} catch (e) {
+}
+
 module.exports = {
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
@@ -17,7 +22,20 @@ module.exports = {
       'jQuery': 'jquery'
     }),
     new webpack.DefinePlugin({
-      'process.env.TODOAPP_G_FIREBASE_API_KEY': JSON.stringify(process.env.TODOAPP_G_FIREBASE_API_KEY)
+      // 'process.env.TODOAPP_G_FIREBASE_API_KEY': JSON.stringify(process.env.TODOAPP_G_FIREBASE_API_KEY)
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        TODOAPP_G_FIREBASE_API_KEY: JSON.stringify(process.env.TODOAPP_G_FIREBASE_API_KEY),
+        TODOAPP_G_FIREBASE_AUTHDOMAIN: JSON.stringify(process.env.TODOAPP_G_FIREBASE_AUTHDOMAIN),
+        TODOAPP_G_FIREBASE_DATABASEURL: JSON.stringify(process.env.TODOAPP_G_FIREBASE_DATABASEURL),
+        TODOAPP_G_FIREBASE_STORAGEBUCKET: JSON.stringify(process.env.TODOAPP_G_FIREBASE_STORAGEBUCKET),
+        TODOAPP_G_FIREBASE_MESSAGINGSENDERID: JSON.stringify(process.env.TODOAPP_G_FIREBASE_MESSAGINGSENDERID),
+        TODOTEST_G_FIREBASE_API_KEY: JSON.stringify(process.env.TODOTEST_G_FIREBASE_API_KEY),
+        TODOTEST_G_FIREBASE_AUTHDOMAIN: JSON.stringify(process.env.TODOTEST_G_FIREBASE_AUTHDOMAIN),
+        TODOTEST_G_FIREBASE_DATABASEURL: JSON.stringify(process.env.TODOTEST_G_FIREBASE_DATABASEURL),
+        TODOTEST_G_FIREBASE_STORAGEBUCKET: JSON.stringify(process.env.TODOTEST_G_FIREBASE_STORAGEBUCKET),
+        TODOTEST_G_FIREBASE_MESSAGINGSENDERID: JSON.stringify(process.env.TODOTEST_G_FIREBASE_MESSAGINGSENDERID)
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
