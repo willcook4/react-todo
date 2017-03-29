@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+
 try {
   // Initialize Firebase
   var config = {};
@@ -21,12 +22,13 @@ try {
       messagingSenderId: process.env.TODOTEST_G_FIREBASE_MESSAGINGSENDERID
     };
   } else {
-    
+    //
   }
 
   firebase.initializeApp(config);
 } catch (e) {
   // console.log(e);
 }
+export var githubProvider = new firebase.auth.GithubAuthProvider();
 export var firebaseRef = firebase.database().ref();
 export default firebase;
