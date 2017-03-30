@@ -2,13 +2,14 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {searchTextReducer, showCompletedReducer, todosReducer} from 'reducers';
+import {searchTextReducer, showCompletedReducer, todosReducer, authReducer} from 'reducers';
 
 export const configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
     searchText: searchTextReducer,
     showCompleted: showCompletedReducer,
-    todos: todosReducer
+    todos: todosReducer,
+    auth: authReducer
   });
 
   // Own / Inc from Stack Overflow

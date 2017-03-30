@@ -12,8 +12,10 @@ firebase.auth().onAuthStateChanged((user) => {
   // If user then auth successful else user logged out
   if(user) {
     // Redirect the user to the todo page after login
+    store.dispatch(actions.login(user.uid)); 
     hashHistory.push('/todos');
   } else {
+    store.dispatch(actions.logout());
     hashHistory.push('/');
   }
 });
