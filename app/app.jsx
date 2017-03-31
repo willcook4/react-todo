@@ -12,7 +12,8 @@ firebase.auth().onAuthStateChanged((user) => {
   // If user then auth successful else user logged out
   if(user) {
     // Redirect the user to the todo page after login
-    store.dispatch(actions.login(user.uid)); 
+    store.dispatch(actions.login(user.uid));
+    store.dispatch(actions.startAddTodos());  // Get the todos from Firebase 
     hashHistory.push('/todos');
   } else {
     store.dispatch(actions.logout());
@@ -33,7 +34,7 @@ firebase.auth().onAuthStateChanged((user) => {
 // var initialTodos = TodoAPI.getTodos();
 // store.dispatch(actions.addTodos(initialTodos));
 
-store.dispatch(actions.startAddTodos());  // Get the todos from Firebase
+
 
 // Load foundation SCSS
 $(document).foundation();
