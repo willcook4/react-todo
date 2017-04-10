@@ -1,6 +1,9 @@
-#React Todo App
 
-####A todo list application. Login to your personal List with OAuth, Add, manage, view and search through your todos.
+# React Todo App
+
+**A todo list application. Login to your personal List with OAuth, Add, manage, view and search through your todos.**
+
+### [Try the app here](https://secret-cliffs-97435.herokuapp.com/)
 
 ![React Todo List Web Application](./assets/todo.gif)
 
@@ -26,7 +29,8 @@ Automated Testing in the browser was setup with Karma.
 
 This project was built as the third and final project as part of the *Complete React Web App Developer Course* by Andrew Mead on [Udemy](https://www.udemy.com/the-complete-react-web-app-developer-course/)
 
-####To run the project locally:
+#### To run the project locally:
+
 Clone this repository:
 `git clone git@github.com:willcook4/react-todo.git`
 
