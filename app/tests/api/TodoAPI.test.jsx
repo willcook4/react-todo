@@ -95,5 +95,9 @@ describe('TodoAPI', () => {
       var filteredTodos = TodoAPI.filterTodos(todos, true, '');
       expect(filteredTodos.length).toBe(3);
     });
+    it('should sort by searchText if uppercase', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, 'Some');
+      expect(filteredTodos.length).toBe(2);
+    });
   });
 });
