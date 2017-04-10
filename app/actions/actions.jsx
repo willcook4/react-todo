@@ -102,7 +102,7 @@ export var login = (uid) => {
 export var startLogin = () => {
   return (dispatch, getState) => {
     firebase.auth().signInWithPopup(githubProvider).then((result) => {
-      console.log('Auth worked', result);
+      // console.log('Auth worked', result);
     }, (error) => {
       console.log('Unable to Auth', error);
     });
