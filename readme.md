@@ -1,4 +1,5 @@
 #React Todo App
+
 ####A todo list application. Login to your personal List with OAuth, Add, manage, view and search through your todos.
 
 ![React Todo List Web Application](./assets/todo.gif)
